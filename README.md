@@ -25,7 +25,9 @@
 5. Подключите базу данных к приложению: зайдите в файл src/main/resources/application.properties, измените следующие поля
    
 spring.datasource.url=jdbc:postgresql://localhost:port/DataBaseOnlineBookStore
+
 spring.datasource.username=username
+
 spring.datasource.password=password
 
 где port - порт, username - ваше имя пользователя PostgreSQL, password - пароль для соответсвующего пользователя PostgreSQL.
