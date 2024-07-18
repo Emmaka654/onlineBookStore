@@ -12,18 +12,26 @@
 3. Выполните команду для установки всех зависимостей:
    
    mvn clean install
-   
-
-## Запуск приложения
-1. Перейдите в класс src/main/java/com/onlineBookStore/OnlineBookStoreApplication.java.
-2. Запустите приложение, выполнив этот класс.
 
 ## Проверка БД
 1. Скачайте резервную копию базы данных DataBaseOnlineBookStore.sql.
 2. Запустите pgAdmin 4.
-3. Восстановите базу данных.
-4. Подключите к приложению.
-5. Проверьте, что данные обновляются путем выполнения запросов.
+3. Восстановите базу данных: создайте пустую базу данных DataBaseOnlineBookStore, восстановите данные из резервной копии:
+   
+   pg_restore -U username -d DataBaseOnlineBookStore DataBaseOnlineBookStore.sql
+   
+где: username - ваше имя пользователя PostgreSQL
+5. Подключите базу данных к приложению: зайдите в файл src/main/resources/application.properties, измените следующие поля
+   
+spring.datasource.url=jdbc:postgresql://localhost:port/DataBaseOnlineBookStore
+spring.datasource.username=username
+spring.datasource.password=password
+
+где port - порт, username - ваше имя пользователя PostgreSQL, password - пароль для соответсвующего пользователя PostgreSQL.
+
+## Запуск приложения
+1. Перейдите в класс src/main/java/com/onlineBookStore/OnlineBookStoreApplication.java.
+2. Запустите приложение, выполнив этот класс.
    
 ## Проверка запросов Postman
 1. Импортируйте коллекцию запросов Postman из файла "collection OnlineBookStore.json".
